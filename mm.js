@@ -4,7 +4,7 @@ var cols = 5;
 var row = 0;
 var col = 0;
 var gameover = false;
-var word = "MYASS";
+var word = "EXILE";
 
 window.onload = function() {
     initialize();
@@ -28,6 +28,7 @@ function initialize() {
                 let currTile = document.getElementById(row.toString() + '-' + col.toString());
                 if (currTile.innerText == "") {
                     currTile.innerText = e.code[3];
+                    currTile.classList.add("animate"); 
                     col += 1;
                 }
             }
@@ -37,6 +38,7 @@ function initialize() {
             }
             let currTile = document.getElementById(row.toString() + '-' + col.toString());
             currTile.innerText = "";
+            currTile.classList.remove("animate"); 
         } else if (e.code == "Enter") {
             update();
             row += 1;
@@ -44,7 +46,7 @@ function initialize() {
         }
         if (!gameover && row == rows) {
             gameover = true;
-            document.getElementById("ans").innerText = "The word was: "+ word;
+            document.getElementById("ans").innerText = "The word was: " + word;
         }
     });
 }
